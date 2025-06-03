@@ -1,7 +1,13 @@
+import Link from "next/link";
+
 const Navbar = () => {
   return (
     <header className="sticky top-0 h-20 w-full flex items-center justify-center gap-2">
-      <nav>EstateOfMind</nav>
+      <nav>
+        <Link href="/" className="text-3xl font-bold">
+          EstateOfMind
+        </Link>
+      </nav>
     </header>
   );
 };
