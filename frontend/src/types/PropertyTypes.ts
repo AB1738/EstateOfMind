@@ -1,7 +1,7 @@
 interface Property {
   id: number;
   title: string;
-  descripton: string;
+  description: string;
   address: string;
   city: string;
   price: number;
