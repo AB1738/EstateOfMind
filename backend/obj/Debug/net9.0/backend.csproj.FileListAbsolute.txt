@@ -29,3 +29,4 @@ C:\Users\ariel\Downloads\EstateOfMind\backend\obj\Debug\net9.0\ref\backend.dll
 C:\Users\ariel\Downloads\EstateOfMind\backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\ariel\Downloads\EstateOfMind\backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\ariel\Downloads\EstateOfMind\backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\ariel\Downloads\EstateOfMind\backend\obj\Debug\net9.0\backend.sourcelink.json

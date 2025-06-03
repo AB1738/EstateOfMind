@@ -94,10 +94,13 @@ namespace backend.Controllers
         }
 
         [HttpPost]
-        public ActionResult<PropertyDTO> AddProperty(PropertyDTO propertyDto)
+        public ActionResult<PropertyDTO> AddProperty([FromBody] PropertyDTO propertyDto)
         {
-            // Console.WriteLine("Creating a new property");
             int Id = properties.Max(x => x.Id) + 1;
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState); // Return a 400 Bad Request if validation fails
+            }
             propertyDto.Id = Id;
             Property property = new Property
             {
@@ -112,16 +115,25 @@ namespace backend.Controllers
                 SqFt = propertyDto.SqFt,
                 ImageUrl = propertyDto.ImageUrl
             };
+
+            if (!TryValidateModel(property))
+                return BadRequest(ModelState); // Return a 400 Bad Request if validation fails
+
             properties.Add(property);
             return Ok(propertyDto);
         }
 
         [HttpPut("{Id}")]
 
-        public IActionResult UpdateProperty(int Id, PropertyDTO propertyDto)
+        public IActionResult UpdateProperty(int Id, [FromBody] PropertyDTO propertyDto)
         {
-            // Console.WriteLine($"Updating property with id of {id}");
             var existingProperty = properties.FirstOrDefault(x => x.Id == Id);
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState); // Return a 400 Bad Request if validation fails
+            }
+
             if (existingProperty == null)
                 return NotFound();
             existingProperty.Title = propertyDto.Title;
@@ -133,6 +145,10 @@ namespace backend.Controllers
             existingProperty.Bathrooms = propertyDto.Bathrooms;
             existingProperty.SqFt = propertyDto.SqFt;
             existingProperty.ImageUrl = propertyDto.ImageUrl;
+
+            if (!TryValidateModel(existingProperty))
+                return BadRequest(ModelState); // Return a 400 Bad Request if validation fails
+
             return Ok(existingProperty);
 
         }
