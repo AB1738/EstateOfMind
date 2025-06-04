@@ -1,15 +1,15 @@
-import { Property } from "@/types/PropertyTypes";
+import { getProperty } from "@/lib/getProperty";
+import { redirect } from "next/navigation";
 
 interface PropertyPageProps {
   params: { PropertyId: string };
 }
 const page = async ({ params }: PropertyPageProps) => {
   const { PropertyId } = await params;
-  console.log(await PropertyId);
-  const response = await fetch(
-    `${process.env.BACKEND_BASE_URL}/api/Property/${PropertyId}`
-  );
-  const property: Property = await response.json();
+  const property = await getProperty(PropertyId);
+  if (!property) {
+    redirect("/");
+  }
   return (
     <div>
       {property.title}
