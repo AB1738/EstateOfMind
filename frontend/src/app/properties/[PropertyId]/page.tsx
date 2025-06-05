@@ -12,6 +12,16 @@ const page = async ({ params }: PropertyPageProps) => {
   if (!property) {
     redirect("/");
   }
+  const address = `${property.address}, ${property.city}, ${property.state}`;
+  // let lat1:number,lat2:number,long1:number,long2:number
+
+  const location = await fetch(
+    `https://api.geocodify.com/v2/geocode?api_key=${process.env.GEOCODIFY_API_KEY}&q=${address}`
+  );
+  const locationData = await location.json();
+  const bbox = locationData.response.bbox;
+  console.log(bbox);
+
   return (
     <div className="p-3 ">
       <div className="flex flex-col md:flex-row w-full gap-1.5">
