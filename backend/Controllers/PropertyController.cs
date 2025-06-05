@@ -212,15 +212,17 @@ namespace backend.Controllers
         }
 
         [HttpDelete("{Id}")]
-        public IActionResult DeleteProperty(int Id)
+        public async Task<IActionResult> DeleteProperty(int Id)
         {
-            // Console.WriteLine($"Deleting property with id of {id}");
-            var property = properties.FirstOrDefault(x => x.Id == Id);
+            // var property = properties.FirstOrDefault(x => x.Id == Id);
+            var property = await _context.Properties.FindAsync(Id);
             if (property == null)
             {
                 return NotFound();
             }
-            properties.Remove(property);
+            // properties.Remove(property);
+            _context.Remove(property);
+            await _context.SaveChangesAsync();
             return NoContent();
         }
     }
