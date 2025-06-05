@@ -1,4 +1,5 @@
 import { getProperty } from "@/lib/getProperty";
+import Image from "next/image";
 import { redirect } from "next/navigation";
 
 interface PropertyPageProps {
@@ -16,11 +17,17 @@ const page = async ({ params }: PropertyPageProps) => {
       {property.description}
       {property.price}
       {property.address}
+      {property.city}
+      <p className="font-bold">{property.state}</p>
       {property.bathrooms}
       {property.bedrooms}
-      {property.city}
       {property.sqFt}
-      {property.imageUrl}
+      <Image
+        height={50}
+        width={50}
+        alt="Property image"
+        src={property.imageUrl}
+      />
     </div>
   );
 };
