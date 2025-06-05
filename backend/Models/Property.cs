@@ -23,6 +23,8 @@ namespace backend.Models
         public string Address { get; set; }
         [Required]
         public string City { get; set; }
+        [Required]
+        public string State { get; set; }
         [Range(0, 99999999999.99)]
         public decimal Price { get; set; }
         [Required]

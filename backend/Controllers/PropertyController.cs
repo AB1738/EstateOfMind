@@ -20,88 +20,7 @@ namespace backend.Controllers
         {
             _context = context;
         }
-        private static List<Property> properties = new List<Property>
-{
-    new Property
-    {
-        Id = 1,
-        Title = "Cozy Cottage",
-        Description = "A small, charming cottage with a lovely garden.",
-        Address = "123 Maple Street",
-        City = "Springfield",
-        Price = 250000,
-        Bedrooms = 2,
-        Bathrooms = 1,
-        SqFt = 900,
-        ImageUrl = "https://images.pexels.com/photos/5389185/pexels-photo-5389185.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-    },
-    new Property
-    {
-        Id = 2,
-        Title = "Modern Apartment",
-        Description = "Spacious downtown apartment with skyline views.",
-        Address = "456 Oak Avenue",
-        City = "Metropolis",
-        Price = 450000,
-        Bedrooms = 3,
-        Bathrooms = 2,
-        SqFt = 1200,
-        ImageUrl = "https://images.pexels.com/photos/813692/pexels-photo-813692.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-    },
-    new Property
-    {
-        Id = 3,
-        Title = "Luxury Villa",
-        Description = "Large villa with a pool and garden.",
-        Address = "789 Palm Drive",
-        City = "Beverly Hills",
-        Price = 2250000,
-        Bedrooms = 5,
-        Bathrooms = 4,
-        SqFt = 3500,
-        ImageUrl = "https://images.pexels.com/photos/1732414/pexels-photo-1732414.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-    },
-    new Property
-    {
-        Id = 4,
-  Title= "Luxury Mansion",
-  Description= "A magnificent mansion with state-of-the-art amenities, a private cinema, and an expansive garden perfect for entertaining guests.",
-  Address= "456 Palm Drive, Malibu",
-  City= "Malibu",
-  Price= 18000000,
-  Bedrooms= 10,
-  Bathrooms= 12,
-  SqFt= 20000,
-  ImageUrl= "https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-    },
-    new Property
-    {
-        Id = 5,
-  Title= "Modern Family Home",
-  Description= "A beautiful modern home with spacious living areas, a fully equipped kitchen, and a cozy backyard perfect for family gatherings.",
-  Address= "789 Maple St, Green City",
-  City= "Green City",
-  Price= 450000,
-  Bedrooms= 4,
-  Bathrooms= 3,
-  SqFt= 2500,
-  ImageUrl= "https://images.pexels.com/photos/816198/pexels-photo-816198.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-    },
-    new Property
-    {
-        Id = 6,
-  Title= "Cozy Countryside Retreat",
-  Description= "A charming countryside house with rolling hills views, a large garden, and a peaceful atmosphere away from the city bustle.",
-  Address= "123 Greenfield Rd, Rolling Meadows",
-  City= "Rolling Meadows",
-  Price= 350000,
-  Bedrooms= 3,
-  Bathrooms= 2,
-  SqFt= 1800,
-  ImageUrl= "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-    },
 
-};
         //Maps property object to propety dto object
         public static PropertyDTO ToDTO(Property property)
         {
@@ -112,6 +31,7 @@ namespace backend.Controllers
                 Description = property.Description,
                 Address = property.Address,
                 City = property.City,
+                State = property.State,
                 Price = property.Price,
                 Bedrooms = property.Bedrooms,
                 Bathrooms = property.Bathrooms,
@@ -164,6 +84,7 @@ namespace backend.Controllers
                 Description = propertyDto.Description,
                 Address = propertyDto.Address,
                 City = propertyDto.City,
+                State = propertyDto.State,
                 Price = propertyDto.Price,
                 Bedrooms = propertyDto.Bedrooms,
                 Bathrooms = propertyDto.Bathrooms,
@@ -198,6 +119,7 @@ namespace backend.Controllers
             existingProperty.Description = propertyDto.Description;
             existingProperty.Address = propertyDto.Address;
             existingProperty.City = propertyDto.City;
+            existingProperty.State = propertyDto.State;
             existingProperty.Price = propertyDto.Price;
             existingProperty.Bedrooms = propertyDto.Bedrooms;
             existingProperty.Bathrooms = propertyDto.Bathrooms;
