@@ -183,9 +183,9 @@ namespace backend.Controllers
 
         [HttpPut("{Id}")]
 
-        public IActionResult UpdateProperty(int Id, [FromBody] PropertyDTO propertyDto)
+        public async Task<IActionResult> UpdateProperty(int Id, [FromBody] PropertyDTO propertyDto)
         {
-            var existingProperty = properties.FirstOrDefault(x => x.Id == Id);
+            var existingProperty = await _context.Properties.FindAsync(Id);
 
             if (!ModelState.IsValid)
             {
@@ -207,6 +207,7 @@ namespace backend.Controllers
             if (!TryValidateModel(existingProperty))
                 return BadRequest(ModelState); // Return a 400 Bad Request if validation fails
 
+            await _context.SaveChangesAsync();
             return Ok(existingProperty);
 
         }
