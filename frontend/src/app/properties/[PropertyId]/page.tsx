@@ -2,6 +2,7 @@ import { getProperty } from "@/lib/getProperty";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 import { MapPin, Bed, Bath, Navigation } from "lucide-react";
+import Map from "@/components/customComponents/Map";
 
 interface PropertyPageProps {
   params: { PropertyId: string };
@@ -12,15 +13,21 @@ const page = async ({ params }: PropertyPageProps) => {
   if (!property) {
     redirect("/");
   }
-  const address = `${property.address}, ${property.city}, ${property.state}`;
-  // let lat1:number,lat2:number,long1:number,long2:number
-
+  const address = `${property.address}, ${
+    property.city === "New York" ? "Manhattan" : property.city
+  }, ${property.state}`;
   const location = await fetch(
-    `https://api.geocodify.com/v2/geocode?api_key=${process.env.GEOCODIFY_API_KEY}&q=${address}`
+    `https://api.geocodify.com/v2/geocode?api_key=${process.env.GEOCODIFY_API_KEY}&q=${address}`,
+    {
+      cache: "force-cache",
+    }
   );
   const locationData = await location.json();
+
   const bbox = locationData.response.bbox;
-  console.log(bbox);
+
+  const centerLng = (bbox[0] + bbox[2]) / 2;
+  const centerLat = (bbox[1] + bbox[3]) / 2;
 
   return (
     <div className="p-3 ">
@@ -70,6 +77,7 @@ const page = async ({ params }: PropertyPageProps) => {
           </button>
         </div>
       </div>
+      <Map coordinates={[centerLng, centerLat]} />
     </div>
   );
 };
