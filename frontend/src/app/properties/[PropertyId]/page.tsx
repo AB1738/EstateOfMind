@@ -37,38 +37,40 @@ const page = async ({ params }: PropertyPageProps) => {
           width={1000}
           alt="Property image"
           src={property.imageUrl}
-          className="w-full md:w-[50%] h-full"
+          className="w-full  md:w-[60%] lg:w-[70%]  min-h-full"
         />
         <div className="flex flex-col gap-2 flex-1 items-center justify-between min-h-full  ">
           <h3 className="font-bold text-xl  sm:text-2xl  md:text-3xl text-center">
             {property.title}
           </h3>
-          <p className="text-center text-sm sm:text-base leading-7">
-            {" "}
-            {property.description}
-          </p>
-          <div className="flex gap-1.5 items-center">
-            <MapPin size={16} />
-            <div className="flex gap-1.5 text-center text-sm sm:text-base">
-              <p>{property.address},</p>
-              <p>{property.city},</p>
-              <p>{property.state}</p>
+          <div className="flex flex-col gap-2 pt-5 items-center">
+            <p className="text-center text-sm sm:text-base leading-7">
+              {" "}
+              {property.description}
+            </p>
+            <div className="flex gap-1.5 items-center">
+              <MapPin size={16} />
+              <div className="flex gap-1.5 text-center text-sm sm:text-base">
+                <p>{property.address},</p>
+                <p>{property.city},</p>
+                <p>{property.state}</p>
+              </div>
             </div>
+            <p className="text-center text-sm sm:text-base flex items-center gap-1.5">
+              <Bed size={16} /> {property.bedrooms} Bed
+            </p>
+            <p className="text-center text-sm sm:text-base flex items-center">
+              <Bath size={16} />
+              {property.bathrooms} Bath
+            </p>
+            <p className="text-center text-sm sm:text-base">
+              {" "}
+              {new Intl.NumberFormat().format(property.sqFt)} Sqft
+            </p>
+            <p className="text-center text-lg sm:text-xl font-semibold ">
+              ${new Intl.NumberFormat().format(property.price)}
+            </p>
           </div>
-          <p className="text-center text-sm sm:text-base flex items-center gap-1.5">
-            <Bed size={16} /> {property.bedrooms} Bed
-          </p>
-          <p className="text-center text-sm sm:text-base flex items-center">
-            <Bath size={16} />
-            {property.bathrooms} Bath
-          </p>
-          <p className="text-center text-sm sm:text-base">
-            {" "}
-            {new Intl.NumberFormat().format(property.sqFt)} Sqft
-          </p>
-          <p className="text-center text-lg sm:text-xl font-semibold ">
-            ${new Intl.NumberFormat().format(property.price)}
-          </p>
           <button className="p-2 mt-auto bg-black hover:scale-101 shadow-md rounded cursor-pointer w-full transition-all duration-200 justify-self-end">
             <p className="flex gap-1 items-center justify-center font-semibold text-white">
               Request A Tour{" "}

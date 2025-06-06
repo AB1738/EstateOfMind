@@ -1,7 +1,7 @@
 "use client";
 import { Map as MapComponent, Marker } from "@vis.gl/react-maplibre";
-import "maplibre-gl/dist/maplibre-gl.css"; // See notes below
-import { useEffect, useState } from "react";
+import "maplibre-gl/dist/maplibre-gl.css";
+import { useState } from "react";
 
 interface CoordinatesProps {
   coordinates: [lattitude: number, longitude: number];
@@ -14,13 +14,14 @@ const Map = ({ coordinates }: CoordinatesProps) => {
   return (
     <div className="py-2">
       <MapComponent
+        interactive={false}
         initialViewState={{
           longitude: lng,
           latitude: lat,
           zoom: 12,
         }}
         style={{ width: "100%", height: 400 }}
-        mapStyle="https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json"
+        mapStyle="https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json"
       >
         <Marker longitude={lng} latitude={lat} color="red" />
       </MapComponent>
