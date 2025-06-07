@@ -1,8 +1,9 @@
 import { getProperty } from "@/lib/getProperty";
 import Image from "next/image";
 import { redirect } from "next/navigation";
-import { MapPin, Bed, Bath, Navigation } from "lucide-react";
+import { MapPin, Bed, Bath } from "lucide-react";
 import Map from "@/components/customComponents/Map";
+import RequestTourBtn from "@/components/customComponents/RequestTourBtn";
 
 interface PropertyPageProps {
   params: { PropertyId: string };
@@ -71,12 +72,7 @@ const page = async ({ params }: PropertyPageProps) => {
               ${new Intl.NumberFormat().format(property.price)}
             </p>
           </div>
-          <button className="p-2 mt-auto bg-black hover:scale-101 shadow-md rounded cursor-pointer w-full transition-all duration-200 justify-self-end">
-            <p className="flex gap-1 items-center justify-center font-semibold text-white">
-              Request A Tour{" "}
-              <MapPin size={18} className="animate-bounce duration-700" />
-            </p>
-          </button>
+          <RequestTourBtn />
         </div>
       </div>
       <Map coordinates={[centerLng, centerLat]} />
