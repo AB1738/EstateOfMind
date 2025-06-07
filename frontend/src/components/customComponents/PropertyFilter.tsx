@@ -91,9 +91,7 @@ const PropertyFilter = () => {
         <div>
           <Tooltip>
             <TooltipTrigger className="cursor-pointer">
-              {/* <p className="flex gap-1 items-center cursor-pointer"> */}
               <SlidersHorizontal />
-              {/* </p> */}
             </TooltipTrigger>
             <TooltipContent>
               <p> Filter properties</p>
@@ -170,28 +168,3 @@ const PropertyFilter = () => {
   );
 };
 export default PropertyFilter;
-
-// <Dialog>
-//   <DialogTrigger className="p-2 mt-auto bg-black hover:scale-101 shadow-md rounded cursor-pointer w-full transition-all duration-200 justify-self-end">
-// <SlidersHorizontal />
-//   </DialogTrigger>
-//   <DialogContent>
-//     <DialogHeader>
-//       <DialogTitle className="text-center font-bold text-xl">
-//         Book a tour
-//       </DialogTitle>
-//       <DialogDescription></DialogDescription>
-//     </DialogHeader>
-
-//       <DialogFooter className="flex">
-//         <DialogClose asChild className="md:w-1/2" ref={closeRef}>
-//           <Button variant="outline" className="cursor-pointer ">
-//             Cancel
-//           </Button>
-//         </DialogClose>
-//   <Button type='submit' className="cursor-pointer flex items-center gap-1">
-//     Filter <ListFilter size={16} />
-//   </Button>
-//       </DialogFooter>
-//   </DialogContent>
-// </Dialog>
