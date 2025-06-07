@@ -38,7 +38,7 @@ const page = async ({ params }: PropertyPageProps) => {
           width={1000}
           alt="Property image"
           src={property.imageUrl}
-          className="w-full  md:w-[60%] lg:w-[70%]  h-screen"
+          className="w-full  md:w-[60%] lg:w-[70%]  h-full sm:h-screen"
         />
         <div className="flex flex-col gap-2 flex-1 items-center justify-between min-h-full  ">
           <h3 className="font-bold text-xl  sm:text-2xl  md:text-3xl text-center">
