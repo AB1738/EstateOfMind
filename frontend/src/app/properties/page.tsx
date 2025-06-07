@@ -10,7 +10,7 @@ const page = async () => {
     <div className="flex flex-col items-center  sm:max-w-7xl mx-auto gap-2 py-2">
       <div className="flex justify-between items-center py-2 w-full">
         <h1 className="text-4xl font-bold ">Properties</h1>
-        <PropertyFilter />
+        {/* <PropertyFilter /> */}
       </div>
       <PropertyGrid properties={properties} />
     </div>
