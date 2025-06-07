@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/customComponents/Navbar";
 import Footer from "@/components/customComponents/Footer";
 import { Montserrat } from "next/font/google";
+import { Toaster } from "@/components/ui/sonner";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -27,6 +28,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-1 bg-stone-200">{children}</main>
         <Footer />
+        <Toaster position="top-center" />
       </body>
     </html>
   );
