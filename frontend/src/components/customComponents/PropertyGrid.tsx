@@ -16,14 +16,14 @@ interface GridPropType {
 
 const PropertyGrid = ({ properties }: GridPropType) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-2">
       {properties.map((property) => (
         <Link
           href={`/properties/${property.id}`}
           key={property.id}
           className="hover:scale-101  "
         >
-          <div className="flex flex-col bg-white items-center rounded gap-1.5 pb-3">
+          <div className="flex flex-col bg-black text-white items-center rounded gap-1.5 pb-3">
             <Image
               height={1000}
               width={1000}
